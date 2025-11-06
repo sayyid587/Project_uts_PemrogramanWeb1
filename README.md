@@ -4,3 +4,5 @@
 ## Kelas: TI.24.A.5
 
 Link Youtube:
+https://www.youtube.com/watch?v=WzxwLXX5Tjk
+
