@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Katalog Stok - Toko Buku Online</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js" defer></script>
+
+    <style>
+      .katalog-container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 0 20px;
+      }
+      /* Custom style untuk button tambah stok */
+      #tambahStokForm {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+        align-items: end;
+      }
+      /* CSS yang dihapus karena sudah dipindahkan ke style.css */
+    </style>
+  </head>
+  <body>
+    <div class="theme-toggle">
+      <label class="switch">
+        <input type="checkbox" id="themeToggle" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <nav class="navbar">
+      <span class="navbar-brand-text">📔Sayylence Read</span>
+      <a href="dashboard.html">🏠 Dashboard</a>
+      <a href="stok.html" class="active">📚 Katalog Stok</a>
+      <a href="tracking.html">🚚 Tracking Kiriman</a>
+      <a
+        href="checkout.html"
+        class="btn btn-primary"
+        style="margin-left: 20px; padding: 5px 10px"
+        >Checkout</a
+      >
+    </nav>
+
+    <div class="katalog-container">
+      <header class="glass-card">
+        <h1>📚 Katalog Buku</h1>
+        <p>Lihat koleksi buku kami dalam tampilan grid yang modern.</p>
+      </header>
+
+      <div class="glass-card mt-20" id="adminFeature">
+        <h3>➕ Tambah Stok Buku Baru (DOM Manipulation)</h3>
+        <form id="tambahStokForm" style="margin-top: 15px">
+          <div class="form-group">
+            <label for="kodeBarang">Kode Barang</label>
+            <input type="text" id="kodeBarang" required />
+          </div>
+          <div class="form-group">
+            <label for="namaBarang">Nama Barang</label>
+            <input type="text" id="namaBarang" required />
+          </div>
+          <div class="form-group">
+            <label for="jenisBarang">Jenis</label>
+            <select id="jenisBarang">
+              <option value="Buku Ajar">Buku Ajar</option>
+              <option value="Non-Ajar">Non-Ajar</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="edisi">Edisi</label>
+            <input type="text" id="edisi" value="1" />
+          </div>
+          <div class="form-group">
+            <label for="stokBaru">Stok</label>
+            <input type="number" id="stokBaru" required min="1" />
+          </div>
+          <div class="form-group">
+            <label for="hargaBaru">Harga (Rp)</label>
+            <input
+              type="text"
+              id="hargaBaru"
+              placeholder="Rp 120.000"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-secondary">
+            Tambah ke Katalog
+          </button>
+        </form>
+      </div>
+
+      <div class="katalog-grid" id="katalogGrid"></div>
+    </div>
+  </body>
+</html>

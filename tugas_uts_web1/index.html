@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Toko Buku Online</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/data.js"></script>
+    <script src="js/script.js" defer></script>
+  </head>
+  <body class="flex-center" style="min-height: 100vh">
+    <div class="theme-toggle">
+      <label class="switch">
+        <input type="checkbox" id="themeToggle" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="login-container glass-card" style="width: 380px">
+      <h2 class="text-center">📔 Sayylence Read</h2>
+      <h3 class="text-center" style="margin-bottom: 30px">Login Akun Anda</h3>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="byan@gmail.com"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="admin123"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%">
+          Login
+        </button>
+      </form>
+
+      <div class="text-center mt-20">
+        <a class="btn-link" onclick="showForgotPassword()">Lupa Password</a> |
+        <a class="btn-link" onclick="showRegister()">Daftar</a>
+      </div>
+    </div>
+
+    <script>
+      // SweetAlert2 for "Modal Box/Pop-up"
+      function showForgotPassword() {
+        Swal.fire({
+          title: "Lupa Password",
+          text: "Silakan hubungi admin di support@tobuk.com untuk reset password Anda.",
+          icon: "info",
+          confirmButtonText: "OK",
+        });
+      }
+
+      function showRegister() {
+        Swal.fire({
+          title: "Daftar Akun Baru",
+          text: "Fitur pendaftaran saat ini sedang maintenance. Silakan gunakan akun yang sudah ada untuk uji coba (e.g., rina@gmail.com / rina123).",
+          icon: "warning",
+          confirmButtonText: "Mengerti",
+        });
+      }
+    </script>
+  </body>
+</html>

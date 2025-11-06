@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Halaman Pemesanan - Toko Buku Online</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/data.js"></script>
+    <script src="js/script.js" defer></script>
+    <style>
+      .checkout-container {
+        max-width: 1000px;
+        margin: 20px auto;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 20px;
+      }
+      .order-summary-card {
+        position: sticky;
+        top: 20px;
+        height: fit-content;
+      }
+      @media (max-width: 768px) {
+        .checkout-container {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="theme-toggle">
+      <label class="switch">
+        <input type="checkbox" id="themeToggle" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <nav class="navbar">
+      <span class="navbar-brand-text">📔Sayylence Read</span>
+      <a href="dashboard.html">🏠 Dashboard</a>
+      <a href="stok.html">📚 Katalog Stok</a>
+      <a href="tracking.html">🚚 Tracking Kiriman</a>
+      <a
+        href="checkout.html"
+        class="active btn btn-primary"
+        style="margin-left: 20px; padding: 5px 10px"
+        >Checkout</a
+      >
+    </nav>
+
+    <div class="checkout-container">
+      <div class="glass-card">
+        <h1>📝 Informasi Pemesan & Pembayaran</h1>
+        <form id="checkoutForm" style="margin-top: 20px">
+          <h3>Detail Pemesan</h3>
+          <div class="form-group">
+            <label for="namaPenerima">Nama Penerima</label>
+            <input
+              type="text"
+              id="namaPenerima"
+              value="Rina Wulandari"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="alamat">Alamat Lengkap</label>
+            <input
+              type="text"
+              id="alamat"
+              value="Jl. Sudirman No. 12, Jakarta Selatan"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="telepon">Nomor Telepon</label>
+            <input type="text" id="telepon" value="081234567890" required />
+          </div>
+
+          <h3 style="margin-top: 30px">Metode Pembayaran</h3>
+          <div class="form-group">
+            <label for="metodePembayaran">Pilih Metode</label>
+            <select id="metodePembayaran" required>
+              <option value="">-- Pilih --</option>
+              <option value="Transfer Bank">Transfer Bank</option>
+              <option value="Virtual Account">Virtual Account</option>
+              <option value="Kartu Kredit">Kartu Kredit</option>
+            </select>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+            style="width: 100%; margin-top: 20px"
+          >
+            Lakukan Pemesanan
+          </button>
+        </form>
+      </div>
+
+      <div class="order-summary-card glass-card">
+        <h2>🛒 Ringkasan Pesanan</h2>
+
+        <div style="margin-top: 20px">
+          <p><strong>1x Pengantar Ilmu Komunikasi</strong></p>
+          <p style="text-align: right">Rp 180.000</p>
+          <hr
+            style="
+              margin: 10px 0;
+              border: 0;
+              border-top: 1px solid rgba(0, 0, 0, 0.1);
+            "
+          />
+          <p><strong>Subtotal:</strong> Rp 180.000</p>
+          <p><strong>Ongkos Kirim:</strong> Rp 15.000</p>
+          <hr
+            style="
+              margin: 10px 0;
+              border: 0;
+              border-top: 2px solid var(--primary-color);
+            "
+          />
+          <h3 style="display: flex; justify-content: space-between">
+            <span>TOTAL:</span>
+            <span id="totalPembayaran">Rp 195.000</span>
+          </h3>
+        </div>
+        <p style="font-size: 0.8em; margin-top: 15px">
+          *Data pemesanan disimulasikan sebagai contoh.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

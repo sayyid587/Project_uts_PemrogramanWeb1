@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>History Transaksi - Toko Buku Online</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js" defer></script>
+    <style>
+      .history-container {
+        max-width: 1000px;
+        margin: 20px auto;
+        padding: 0 20px;
+      }
+      /* Tambahan styling untuk status */
+      .status-badge {
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 0.9em;
+        color: white;
+      }
+      .status-success {
+        background-color: var(--primary-color);
+      } /* Selesai */
+      .status-warning {
+        background-color: #ff9800;
+      } /* Dikirim */
+      .status-danger {
+        background-color: #f44336;
+      } /* Dibatalkan */
+
+      /* Mengembalikan styling tabel untuk history */
+      .katalog-table-wrapper {
+        overflow-x: auto;
+      }
+      .glass-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      .glass-table thead {
+        background: rgba(0, 0, 0, 0.1);
+      }
+      .glass-table th,
+      .glass-table td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="theme-toggle">
+      <label class="switch">
+        <input type="checkbox" id="themeToggle" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <nav class="navbar">
+      <span class="navbar-brand-text">📔Sayylence Read</span>
+      <a href="dashboard.html">🏠 Dashboard</a>
+      <a href="stok.html">📚 Katalog Stok</a>
+      <a href="tracking.html">🚚 Tracking Kiriman</a>
+      <a
+        href="index.html"
+        class="btn btn-secondary"
+        style="margin-left: 20px; padding: 5px 10px"
+        >Logout</a
+      >
+    </nav>
+
+    <div class="history-container">
+      <header class="glass-card">
+        <h1 id="historyTitle">📜 History Transaksi Anda</h1>
+        <p id="historyRoleText">
+          Menampilkan riwayat transaksi pemesanan Anda.
+        </p>
+      </header>
+
+      <div class="glass-card mt-20">
+        <div class="katalog-table-wrapper">
+          <table class="glass-table" id="historyTable">
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Tanggal</th>
+                <th>No. DO</th>
+                <th>Item Pesanan</th>
+                <th>Total Pembayaran</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="historyBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

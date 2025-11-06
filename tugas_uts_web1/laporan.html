@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laporan Pemesanan - Toko Buku Online</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/data.js"></script>
+    <script src="js/script.js" defer></script>
+    <style>
+      .laporan-container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 0 20px;
+      }
+      .laporan-ringkasan {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+      .summary-card {
+        padding: 20px;
+        text-align: center;
+      }
+      .summary-card h2 {
+        font-size: 2.5em;
+        margin: 5px 0;
+        color: var(--primary-color);
+      }
+      .summary-card p {
+        font-size: 1em;
+        color: var(--text-color-light);
+      }
+      .terlaris-list {
+        list-style-type: none;
+        padding: 0;
+      }
+      .terlaris-list li {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="theme-toggle">
+      <label class="switch">
+        <input type="checkbox" id="themeToggle" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <nav class="navbar">
+      <span class="navbar-brand-text">📔Sayylence Read</span>
+      <a href="dashboard.html">🏠 Dashboard</a>
+      <a href="stok.html">📚 Katalog Stok</a>
+      <a href="tracking.html">🚚 Tracking Kiriman</a>
+      <a
+        href="index.html"
+        class="btn btn-secondary"
+        style="margin-left: 20px; padding: 5px 10px"
+        >Logout</a
+      >
+    </nav>
+
+    <div class="laporan-container">
+      <header class="glass-card">
+        <h1>📊 Laporan Pemesanan</h1>
+        <p>Ringkasan performa penjualan bulanan (Fitur Eksklusif Admin).</p>
+      </header>
+
+      <div class="laporan-ringkasan mt-20" id="laporanRingkasan"></div>
+
+      <div class="glass-card mt-20">
+        <h2>Buku Terlaris Bulan Ini</h2>
+        <ul class="terlaris-list" id="bukuTerlarisList"></ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tracking Pengiriman - Toko Buku Online</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/data.js"></script>
+    <script src="js/script.js" defer></script>
+    <style>
+      .tracking-container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 0 20px;
+      }
+      .tracking-journey h4 {
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+      }
+      .tracking-step {
+        border-left: 3px solid var(--secondary-color);
+        padding: 5px 0 15px 15px;
+        margin-bottom: 10px;
+        position: relative;
+      }
+      .tracking-step:before {
+        content: "•";
+        color: var(--secondary-color);
+        font-size: 20px;
+        position: absolute;
+        left: -11px;
+        top: 0;
+        background: var(--bg-color-light);
+        padding-right: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="theme-toggle">
+      <label class="switch">
+        <input type="checkbox" id="themeToggle" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <nav class="navbar">
+      <span class="navbar-brand-text">📔Sayylence Read</span>
+      <a href="dashboard.html">🏠 Dashboard</a>
+      <a href="stok.html">📚 Katalog Stok</a>
+      <a href="tracking.html" class="active">🚚 Tracking Kiriman</a>
+      <a
+        href="checkout.html"
+        class="btn btn-primary"
+        style="margin-left: 20px; padding: 5px 10px"
+        >Checkout</a
+      >
+    </nav>
+
+    <div class="tracking-container">
+      <header class="glass-card">
+        <h1>🚚 Lacak Pengiriman Pesanan</h1>
+        <p>Masukkan Nomor Delivery Order (DO) Anda untuk melihat status.</p>
+      </header>
+
+      <div class="glass-card mt-20">
+        <form id="trackingForm">
+          <div class="form-group">
+            <label for="nomorDO">Nomor Delivery Order:</label>
+            <input
+              type="text"
+              id="nomorDO"
+              placeholder="e.g., 20230013"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Cari Status</button>
+        </form>
+      </div>
+
+      <div id="trackingResult" style="display: none"></div>
+    </div>
+  </body>
+</html>

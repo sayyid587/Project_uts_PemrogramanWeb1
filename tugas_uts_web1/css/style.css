@@ -1,0 +1,348 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+:root {
+  /* Light Mode Variables */
+  --bg-color-light: #f0f2f5;
+  --card-bg-light: rgba(255, 255, 255, 0.75);
+  --text-color-light: #333;
+  --shadow-light: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  --border-light: 1px solid rgba(255, 255, 255, 0.18);
+  --primary-color: #4caf50; /* Green */
+  --primary-hover: #45a049;
+  --secondary-color: #2196f3; /* Blue */
+  --accent-gradient: linear-gradient(135deg, #a8c0ff 0%, #3f2b96 100%);
+}
+
+/* Dark Mode Variables */
+.dark-mode {
+  --bg-color-light: #121212;
+  --card-bg-light: rgba(30, 30, 30, 0.75);
+  --text-color-light: #e0e0e0;
+  --shadow-light: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  --border-light: 1px solid rgba(255, 255, 255, 0.1);
+  --primary-color: #66bb6a;
+  --primary-hover: #4caf50;
+  --secondary-color: #64b5f6;
+  --accent-gradient: linear-gradient(135deg, #1f4037 0%, #99f2c8 100%);
+}
+
+/* --- Base Styles --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--bg-color-light);
+  color: var(--text-color-light);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* --- Neo-Glass Card Component --- */
+.glass-card {
+  background: var(--card-bg-light);
+  box-shadow: var(--shadow-light);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: var(--border-light);
+  padding: 30px;
+  margin: 20px;
+}
+
+/* --- Button Styling --- */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.4);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #1e88e5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(33, 150, 243, 0.4);
+}
+
+/* --- Form Elements --- */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="number"],
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: var(--border-light);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--text-color-light);
+  transition: border-color 0.3s;
+}
+.dark-mode .form-group input,
+.dark-mode .form-group select {
+  background: rgba(50, 50, 50, 0.7);
+}
+
+/* --- Utility Classes --- */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text-center {
+  text-align: center;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+
+/* --- Table Styling (used in stok.html & tracking.html) --- */
+.glass-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.glass-table thead {
+  background: rgba(0, 0, 0, 0.1);
+}
+.glass-table th,
+.glass-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+.dark-mode .glass-table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .glass-card {
+    margin: 10px;
+    padding: 20px;
+  }
+  .btn {
+    padding: 10px 15px;
+    font-size: 0.9em;
+  }
+}
+
+/* --- Toggle Switch for Dark Mode --- */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: var(--primary-color);
+}
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* --- Navigation Bar --- */
+/* --- Modifikasi untuk Navbar yang Rapi --- */
+
+.navbar {
+  display: flex; /* Menggunakan Flexbox untuk penataan horizontal */
+  align-items: center; /* Meratakan item secara vertikal di tengah */
+  padding: 10px 20px; /* Padding standar */
+  background: var(--glass-background);
+  box-shadow: var(--shadow-small);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Style Khusus untuk Nama Toko (Teks Biasa) */
+.navbar-brand-text {
+  /* Hapus Padding agar tidak terlalu tebal */
+  padding: 0;
+  font-size: 1.25em;
+  font-weight: 800; /* Lebih tebal agar menonjol */
+  color: var(
+    --secondary-color
+  ); /* Ubah ke secondary color agar lebih kontras */
+  margin-right: 30px; /* Memberi jarak lebih lebar dari menu pertama */
+  cursor: default;
+}
+
+/* Style untuk semua link di Navbar */
+.navbar a {
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 8px 15px; /* Padding seragam untuk semua menu */
+  margin: 0 5px; /* Memberi jarak antar menu */
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.navbar a:hover:not(.btn) {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar a.active {
+  background-color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+}
+
+/* --- Progress Bar for Tracking --- */
+.progress-container {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 20px 0;
+  height: 15px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+}
+
+/* ... (CSS sebelumnya tetap sama) ... */
+
+/* --- Katalog Card Styling (NEW) --- */
+.katalog-grid {
+  display: grid;
+  /* Membuat grid responsif: 2 kolom di desktop, 1 kolom di mobile */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.buku-card {
+  /* Menggunakan glass-card yang sudah ada */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.buku-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.3);
+}
+
+.buku-info {
+  flex-grow: 1; /* Agar info mengisi ruang */
+}
+
+.buku-cover {
+  width: 100%;
+  max-height: 350px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.buku-card h3 {
+  margin-bottom: 5px;
+  color: var(--primary-color);
+}
+
+.buku-detail p {
+  margin: 4px 0;
+  font-size: 0.9em;
+}
+
+.buku-price {
+  font-size: 1.4em;
+  font-weight: 700;
+  margin-top: 15px;
+  color: var(--secondary-color);
+  text-align: right;
+}
+
+/* Responsif untuk cover di mobile */
+@media (max-width: 600px) {
+  .katalog-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+/* Styling untuk Nama Toko di Navbar */
+.navbar-brand-text {
+  font-size: 1.2em; /* Sedikit lebih besar dari link biasa */
+  font-weight: 700; /* Tebal */
+  color: var(--primary-color); /* Atau warna yang menonjol */
+  margin-right: 20px;
+  padding: 10px 15px;
+  cursor: default;
+  text-decoration: none;
+  transition: none;
+}

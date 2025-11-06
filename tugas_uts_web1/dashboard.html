@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Toko Buku Online</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/data.js"></script>
+    <script src="js/script.js" defer></script>
+    <style>
+      .dashboard-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+      }
+      .menu-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+        text-align: center;
+        cursor: pointer;
+        transition: transform 0.3s;
+        text-decoration: none;
+        color: inherit;
+      }
+      .menu-item:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-light);
+      }
+      .menu-item h3 {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="theme-toggle">
+      <label class="switch">
+        <input type="checkbox" id="themeToggle" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <nav class="navbar">
+      <span class="navbar-brand-text">📔Sayylence Read</span>
+      <a href="dashboard.html" class="active">🏠 Dashboard</a>
+      <a href="stok.html">📚 Katalog Stok</a>
+      <a href="tracking.html">🚚 Tracking Kiriman</a>
+      <a
+        href="index.html"
+        class="btn btn-secondary"
+        style="margin-left: 20px; padding: 5px 10px"
+        >Logout</a
+      >
+    </nav>
+
+    <div class="dashboard-container">
+      <header class="glass-card text-center">
+        <h1 id="greeting">Loading...</h1>
+        <p>Silakan pilih menu utama di bawah ini.</p>
+      </header>
+
+      <div class="menu-grid" id="menuGrid">
+        <a href="stok.html" class="menu-item glass-card">
+          <h2>📚</h2>
+          <h3>Informasi Stok/Katalog</h3>
+          <p>Lihat dan kelola ketersediaan buku.</p>
+        </a>
+
+        <a href="tracking.html" class="menu-item glass-card">
+          <h2>🚚</h2>
+          <h3>Tracking Pengiriman</h3>
+          <p>Lacak status Delivery Order pesanan Anda.</p>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
